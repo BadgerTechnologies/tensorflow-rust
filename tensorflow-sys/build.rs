@@ -42,6 +42,9 @@ fn main() {
     #[cfg(feature = "runtime_linking")]
     return;
 
+    println!("cargo:rustc-link-lib=dylib=ssl");
+    println!("cargo:rustc-link-lib=dylib=crypto");
+
     // DO NOT RELY ON THIS
     if cfg!(feature = "private-docs-rs") {
         log!("Returning early because private-docs-rs feature was enabled");
